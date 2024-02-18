@@ -7,7 +7,6 @@ django-filter
 requests
 stripe
 celery
-eventlet
 django-celery-beat
 python-dotenv
 attrs

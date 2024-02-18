@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, DjangoModelPermissionsOr
 from habits.models import Habit
 from habits.serliazers import HabitSerializer
 from users.permissions import UserIsStaff
-from .tasks import schedule_reminder
+from .tasks import send_notification
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
@@ -17,7 +17,7 @@ class HabitCreateAPIView(generics.CreateAPIView):
     def perform_create(self, serializer):
         related_habit = None
         new_habit = serializer.save(related_habit=related_habit, client=self.request.user)
-        schedule_reminder.delay(new_habit.id)  # вызов отложенной задачи с передачей параметра
+        send_notification.delay(new_habit.id)  # вызов отложенной задачи с передачей параметра
 
 
 class HabitListAPIView(generics.ListAPIView):
