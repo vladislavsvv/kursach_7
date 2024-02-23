@@ -1,7 +1,8 @@
 from datetime import datetime
 from django.db import models
-from users.models import User, NULLABLE
+from users.models import User
 
+NULLABLE = {'blank': True, 'null': True}
 
 class Habit(models.Model):
     """Привычка"""

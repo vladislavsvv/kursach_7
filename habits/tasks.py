@@ -20,5 +20,5 @@ def send_notification():  # Функция отправки уведомлени
                       f"После этого можно:\n \
 {habit.habits if habit.habits else habit.reward}"
             send_message(token=token,
-                         chat_id=habit.user.chat_id,
+                         chat_id=habit.client.chat_id,
                          message=message)

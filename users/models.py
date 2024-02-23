@@ -16,6 +16,7 @@ class User(AbstractUser):
     city = models.CharField(max_length=150, verbose_name='город', **NULLABLE)
     is_active = models.BooleanField(default=False, verbose_name='активный')
     date_of_birth = models.DateField(verbose_name='дата_рождения', **NULLABLE)
+    chat_id = models.CharField(max_length=100,verbose_name='номер чата', **NULLABLE)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
